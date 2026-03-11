@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
+import ClientLayout from "@/components/ClientLayout";
 import Footer from "@/components/Footer";
 
 const inter = Inter({
@@ -18,14 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col bg-gray-950 text-gray-100`}>
-        <Header />
-        
-        <div className="flex flex-1 container mx-auto px-4 w-full">
-          <Sidebar />
-          <main className="flex-1 p-6 w-full max-w-full overflow-hidden">
-            {children}
-          </main>
-        </div>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
 
         <Footer />
       </body>
